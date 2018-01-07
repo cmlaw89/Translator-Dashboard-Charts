@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <?!= include('Stylesheet') ?>
+    <?!= include('Javascript') ?>
+
+  </head>
+  <body>
+  
+  <!-- Tab links -->
+  <div id="tabs">
+    <ul id="navigation">
+      <li class="selected"><a href="#TPR_vis_div">Proofreading&nbsp;Score</a></li>
+      <li><a href="#TE_vis_div">Editing&nbsp;Score</a></li>
+      <li><a href="#Cat_vis_div">Category&nbsp;Scores</a></li>
+      <li id="filler"></li>
+    </ul>
+    <div id="TPR_vis_div" class="tabcontent"></div>
+    <div id="TE_vis_div" class="tabcontent"></div>
+    <div id="Cat_vis_div" class="tabcontent"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#tabs" ).tabs();
+  } );
+  </script>
+  
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

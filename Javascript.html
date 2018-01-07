@@ -1,0 +1,49 @@
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      
+    
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(getTimeArray);
+    
+      function onSuccess(my_array) {
+        var TPR_data_table = google.visualization.arrayToDataTable(my_array[0]);
+        var TE_data_table = google.visualization.arrayToDataTable(my_array[1]);
+        var Cat_data_table = google.visualization.arrayToDataTable(my_array[2]);
+        var TPR_options = {smoothLine: true, 
+                           height: 370, 
+                           width: 732, 
+                           vAxis: {direction: -1, 
+                                   ticks: [{v:0, f:' '},
+                                           {v:0.33, f:'A+'},
+                                           {v:0.67, f:'A '},
+                                           {v:1, f:'A-'},
+                                           {v:1.33, f:'B+'},
+                                           {v:1.6, f:'B '},
+                                           {v:1.83, f:'B-'},
+                                           {v:2, f:'C+'},
+                                           {v:2.4, f:'C '},
+                                           {v:3, f:'C-'},
+                                           {v:4.5, f:'F '},]}}
+        var TE_options = {smoothLine: true, height: 370, width: 732,}
+        var Cat_options = {smoothLine: true, 
+                           height: 370, 
+                           width: 732,
+                           vAxis: {direction: -1, 
+                                   ticks: [{v:1, f:'1'},
+                                           {v:1.5, f:'1.5'},
+                                           {v:2, f:'2'},
+                                           {v:2.5, f:'2.5'},
+                                           {v:3, f:'3'}]}}
+        var TPR_chart = new google.visualization.LineChart(document.getElementById('TPR_vis_div'));
+        var TE_chart = new google.visualization.LineChart(document.getElementById('TE_vis_div'));
+        var Cat_chart = new google.visualization.LineChart(document.getElementById('Cat_vis_div'));
+        TPR_chart.draw(TPR_data_table, TPR_options);
+        TE_chart.draw(TE_data_table, TE_options);
+        Cat_chart.draw(Cat_data_table, Cat_options);
+      }
+      
+      function getTimeArray() {
+        google.script.run.withSuccessHandler(onSuccess).getDataTables(["TPR", "TE", "Cat"]);
+      }
+
+    </script>
