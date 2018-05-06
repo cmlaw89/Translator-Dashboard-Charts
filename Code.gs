@@ -38,13 +38,13 @@ function getDataTable(type) {
 
   
   //Extract the data based on the query request
-  var translator = pivot_sheet.getRange("R1").getValue().split(" ")[1].slice(0, -1);
+  var translator = pivot_sheet.getRange("T1").getValue().split(" ")[1].slice(0, -1);
   var num_months = pivot_sheet.getRange("B1").getValue();
   var month_data = pivot_sheet.getRange(3, 1, num_months, 1).getValues();
   var TPR_data = pivot_sheet.getRange(3, 4, num_months, 1).getValues();
-  var team_TPR_data = pivot_sheet.getRange(3, 12, num_months, 1).getValues();
+  var team_TPR_data = pivot_sheet.getRange(3, 14, num_months, 1).getValues();
   var TE_data = pivot_sheet.getRange(3, 5, num_months, 1).getValues();
-  var team_TE_data = pivot_sheet.getRange(3, 13, num_months, 1).getValues();
+  var team_TE_data = pivot_sheet.getRange(3, 15, num_months, 1).getValues();
   var cat_data = pivot_sheet.getRange(3, 6, num_months, 6).getValues();
   
   
